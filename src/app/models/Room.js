@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
   Room.init(
     {
       name: DataTypes.STRING,
+      user_id: DataTypes.INTEGER,
     },
     {
       sequelize,

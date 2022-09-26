@@ -20,6 +20,10 @@ module.exports = {
         },
         onDelete: "CASCADE",
       },
+      privater: {
+        allowNull: false,
+        type: Sequelize.BOOLEAN,
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE,
