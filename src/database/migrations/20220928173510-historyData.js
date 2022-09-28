@@ -2,7 +2,7 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    return queryInterface.createTable("historyDatas", {
+    await queryInterface.createTable("datas", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -12,18 +12,17 @@ module.exports = {
       data: {
         type: Sequelize.STRING,
       },
+      year: {
+        type: Sequelize.INTEGER,
+      },
       room_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: "users",
+          model: "rooms",
           key: "id",
         },
         onDelete: "CASCADE",
-      },
-      year: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
       },
       created_at: {
         allowNull: false,
@@ -37,6 +36,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    return queryInterface.dropTable("historyData");
+    await queryInterface.dropTable("datas");
   },
 };
